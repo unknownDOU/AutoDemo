@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration >
+	
+	<!--配置数据库连接信息-->
+	<environments default="test">
+		<!--在environment里id的值必须有一个与environments的default（默认环境）值一样-->
+		<environment id="test">
+			<!--事务管理器，type值有两个:JDBC和MANAGED-->
+			<transactionManager type="JDBC"/>
+			<!--数据源 type值有三个"[UNPOOLED|POOLED|JNDI]"-->
+			<dataSource type="POOLED">
+				<!--jdbc 驱动的java类的完全限定名-->
+				<property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+				<!--数据库地址-->
+				<property name="url" value="jdbc:mysql://127.0.0.1:3306/course"/>
+				<!--数据库用户名-->
+				<property name="username" value="root"/>
+				<!--数据库密码-->
+				<property name="password" value="admin123"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!--告诉mybatis存放sql语句的mappers在什么位置-->
+	<mappers>
+		<mapper resource="mapper/testSql.xml"/>
+	</mappers>
+
+</configuration>
+		
